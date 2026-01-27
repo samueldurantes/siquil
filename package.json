@@ -1,0 +1,32 @@
+{
+  "name": "siquil",
+  "version": "1.0.0",
+  "description": "Simple SQL migration tool for PostgreSQL",
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "bin": {
+    "siquil": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/lib.d.ts",
+      "default": "./dist/lib.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && node dist/index.js"
+  },
+  "keywords": ["sql", "migrations", "postgresql", "cli"],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.0.0",
+    "pg": "^8.11.0",
+    "toml": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/pg": "^8.11.0",
+    "typescript": "^5.0.0"
+  }
+}
