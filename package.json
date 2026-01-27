@@ -2,6 +2,16 @@
   "name": "siquil",
   "version": "1.0.0",
   "description": "Simple SQL migration tool for PostgreSQL",
+  "author": "Samuel Durante",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samueldurantes/siquil.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samueldurantes/siquil/issues"
+  },
+  "homepage": "https://github.com/samueldurantes/siquil#readme",
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
   "bin": {
@@ -13,12 +23,21 @@
       "default": "./dist/lib.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && node dist/index.js"
+    "prepublishOnly": "npm run build",
+    "release": "npm run build && git tag v$npm_package_version && git push --tags && npm publish"
   },
-  "keywords": ["sql", "migrations", "postgresql", "cli"],
-  "license": "MIT",
+  "keywords": [
+    "sql",
+    "migrations",
+    "postgresql",
+    "cli",
+    "database"
+  ],
   "dependencies": {
     "commander": "^12.0.0",
     "pg": "^8.11.0",
