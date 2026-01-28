@@ -111,13 +111,8 @@ export async function getLastAppliedMigration(
 export async function dropAllTables(): Promise<void> {
   const pool = getPool();
   await pool.query(`
-    DO $$ DECLARE
-      r RECORD;
-    BEGIN
-      FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
-        EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
-      END LOOP;
-    END $$;
+    DROP SCHEMA public CASCADE;
+    CREATE SCHEMA public;
   `);
 }
 
